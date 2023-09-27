@@ -1,0 +1,8 @@
+[init]
+	defaultBranch = main
+[user]
+	email = hello@junaydbhoyroo.com
+	name = Junayd Bhoyroo
+[alias]
+	ll = log --oneline
+	co = checkout

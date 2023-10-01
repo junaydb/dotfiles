@@ -9,31 +9,28 @@ end
 
 function fish_prompt
   set -l last_status $status
-  set -l cyan (set_color -o cyan)
   set -l yellow (set_color -o yellow)
-  set -l red (set_color -o red)
-  set -l blue (set_color -o blue)
-  set -l green (set_color -o green)
-  set -l normal (set_color normal)
-  set -l dblue (set_color -o -d blue)
-  set -l dpurple (set_color -o 533EAD)
-  set -l hostname_no_domain (hostname -s)
+  set -l red (set_color -o F53F3F)
+  set -l purple (set_color -o 743BBF)
+  set -l green (set_color -o 2EE668)
+  set -l normal (set_color -o 389EF5)
 
   if test $last_status = 0
-      set status_indicator "$green✔︎ "
+      set status_indicator "$green 󱦰 "
   else
-      set status_indicator "$red✗ "
+      set status_indicator "$red 󱦰 "
   end
-  set -l cwd $cyan(basename (prompt_pwd))
+  set -l cwd $normal(basename (prompt_pwd))
 
   if [ (_git_branch_name) ]
 
     if test (_git_branch_name) = 'master'
+      or test (_git_branch_name) = 'main'
       set -l git_branch (_git_branch_name)
-      set git_info "$normal ($red$git_branch$normal)"
+      set git_info "$purple git:($red$git_branch$purple)"
     else
       set -l git_branch (_git_branch_name)
-      set git_info "$normal ($blue$git_branch$normal)"
+      set git_info "$purple git:($green$git_branch$green)"
     end
 
     if [ (_is_git_dirty) ]
@@ -47,5 +44,5 @@ function fish_prompt
     echo The last command took (math "$CMD_DURATION/1000") seconds.
   end
 
-  echo -n -s $dpurple$USER@$dblue$hostname_no_domain ' ' $status_indicator $cwd $git_info $normal ' '
+  echo -n -s $status_indicator $cwd $git_info $normal ' '
 end

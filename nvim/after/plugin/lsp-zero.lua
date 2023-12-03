@@ -1,10 +1,10 @@
-local lsp_zero = require('lsp-zero')
+local lsp_zero = require("lsp-zero")
 
 lsp_zero.on_attach(function(client, bufnr)
-  lsp_zero.default_keymaps({ buffer = bufnr })
+	lsp_zero.default_keymaps({ buffer = bufnr })
 
-  -- show symbol info
-  vim.keymap.set("i", "<C-d>", vim.lsp.buf.hover, {})
+	-- show symbol info
+	vim.keymap.set("n", "gh", vim.lsp.buf.hover, {})
 
 	-- show diagnostics on hover
 	vim.api.nvim_create_autocmd("CursorHold", {
@@ -23,47 +23,47 @@ lsp_zero.on_attach(function(client, bufnr)
 	})
 end)
 
-require('mason').setup({})
-require('mason-lspconfig').setup({
-  handlers = {
-    lsp_zero.default_setup,
-  },
+require("mason").setup({})
+require("mason-lspconfig").setup({
+	handlers = {
+		lsp_zero.default_setup,
+	},
 })
 
 require("lspconfig").tsserver.setup({
-  -- disable tsserver formatting
-  on_init = function(client)
-    client.server_capabilities.documentFormattingProvider = false
-    client.server_capabilities.documentFormattingRangeProvider = false
-  end,
+	-- disable tsserver formatting
+	on_init = function(client)
+		client.server_capabilities.documentFormattingProvider = false
+		client.server_capabilities.documentFormattingRangeProvider = false
+	end,
 })
 
 require("lspconfig").lua_ls.setup({
-  -- disable lua_ls formatting
-  on_init = function(client)
-    client.server_capabilities.documentFormattingProvider = false
-    client.server_capabilities.documentFormattingRangeProvider = false
-  end,
+	-- disable lua_ls formatting
+	on_init = function(client)
+		client.server_capabilities.documentFormattingProvider = false
+		client.server_capabilities.documentFormattingRangeProvider = false
+	end,
 
-  -- set 'vim' as global for lua
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { "vim" },
-      },
-    },
-  },
+	-- set 'vim' as global for lua
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = { "vim" },
+			},
+		},
+	},
 })
 
 require("lspconfig").tailwindcss.setup({
-  -- enable tailwind completion for cva
-  settings = {
-    tailwindCSS = {
-      experimental = {
-        classRegex = {
-          { "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
-        },
-      },
-    },
-  },
+	-- enable tailwind completion for cva
+	settings = {
+		tailwindCSS = {
+			experimental = {
+				classRegex = {
+					{ "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+				},
+			},
+		},
+	},
 })

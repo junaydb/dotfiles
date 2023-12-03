@@ -7,6 +7,9 @@ require("conform").setup({
 		typescriptreact = { "prettierd" },
 		html = { "prettierd" },
 		css = { "prettierd" },
+		c = { "clang_format" },
+		cpp = { "clang_format" },
+		java = { "google-java-format" },
 	},
 })
 

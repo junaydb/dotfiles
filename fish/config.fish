@@ -6,11 +6,16 @@ alias gcc='gcc-13'
 alias cpp='cpp-13'
 alias g++='g++-13'
 
+set fish_color_valid_path
 set fish_vi_force_cursor
 set -U theme_color_scheme dracula
 set -U theme_display_git_default_branch yes
 set -U fish_cursor_default block blink
 set -U fish_cursor_insert block blink
+
+set -U ARTISTIC_STYLE_OPTIONS ~/.astylerc
+
+pyenv init - | source
 
 # pnpm
 set -gx PNPM_HOME "/Users/junayd/Library/pnpm"

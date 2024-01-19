@@ -1,7 +1,8 @@
-local lsp_zero = require("lsp-zero")
+local lsp = require("lsp-zero")
+local config = require("lspconfig")
 
-lsp_zero.on_attach(function(client, bufnr)
-	lsp_zero.default_keymaps({ buffer = bufnr })
+lsp.on_attach(function(client, bufnr)
+	lsp.default_keymaps({ buffer = bufnr })
 
 	-- show symbol info
 	vim.keymap.set("n", "gh", vim.lsp.buf.hover, {})
@@ -26,11 +27,11 @@ end)
 require("mason").setup({})
 require("mason-lspconfig").setup({
 	handlers = {
-		lsp_zero.default_setup,
+		lsp.default_setup,
 	},
 })
 
-require("lspconfig").tsserver.setup({
+config.tsserver.setup({
 	-- disable tsserver formatting
 	on_init = function(client)
 		client.server_capabilities.documentFormattingProvider = false
@@ -38,7 +39,7 @@ require("lspconfig").tsserver.setup({
 	end,
 })
 
-require("lspconfig").lua_ls.setup({
+config.lua_ls.setup({
 	-- disable lua_ls formatting
 	on_init = function(client)
 		client.server_capabilities.documentFormattingProvider = false
@@ -50,19 +51,6 @@ require("lspconfig").lua_ls.setup({
 		Lua = {
 			diagnostics = {
 				globals = { "vim" },
-			},
-		},
-	},
-})
-
-require("lspconfig").tailwindcss.setup({
-	-- enable tailwind completion for cva
-	settings = {
-		tailwindCSS = {
-			experimental = {
-				classRegex = {
-					{ "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
-				},
 			},
 		},
 	},

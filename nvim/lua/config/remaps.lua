@@ -9,7 +9,7 @@ vim.keymap.set("i", "jk", "<Esc>", opts) -- return to normal mode from insert mo
 vim.keymap.set("n", "<PageDown>", ":bnext<cr>", opts) -- go to next buffer
 vim.keymap.set("n", "<PageUp>", ":bprevious<cr>", opts) -- go to prev buffer
 vim.keymap.set("n", "<C-x>", ":bdelete<cr>", opts) -- close current buffer
-vim.keymap.set("n", "<C-s>", ":vsplit<cr>", opts) -- split vertical 
+vim.keymap.set("n", "<C-s>", ":vsplit<cr>", opts) -- split vertical
 
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], opts) -- yank to system clipboard
 vim.keymap.set({ "n", "v" }, "<leader>yy", [["+yy]], opts) -- yank line to system clipboard
@@ -20,3 +20,6 @@ vim.keymap.set("n", "<leader>sl", ":s/", opts) -- search and replace (current li
 vim.keymap.set("n", "<leader>sf", ":%s/", opts) -- search and replace (entire file)
 
 vim.keymap.set("n", "<leader>h", ":noh<cr>", opts) -- remove highlight
+
+vim.keymap.set({ "n", "v" }, "<leader>x", [["_x]], opts) -- delete into black hole register
+vim.keymap.set("n", "<leader>dd", [["_dd]], opts) -- delete line into black hole register

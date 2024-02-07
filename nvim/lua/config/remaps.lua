@@ -23,3 +23,5 @@ vim.keymap.set("n", "<leader>h", ":noh<cr>", opts) -- remove highlight
 
 vim.keymap.set({ "n", "v" }, "<leader>x", [["_x]], opts) -- delete into black hole register
 vim.keymap.set("n", "<leader>dd", [["_dd]], opts) -- delete line into black hole register
+
+vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts) -- rename symbol

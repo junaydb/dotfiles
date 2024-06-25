@@ -1,20 +1,19 @@
+# enable vim bindings
 fish_vi_key_bindings
 
+# aliases
 alias lsa='ls -A'
 alias vim='nvim'
 alias gcc='gcc-13'
 alias cpp='cpp-13'
 alias g++='g++-13'
 
-set fish_color_valid_path
+# blinking block cursor 
 set fish_vi_force_cursor
-set -U theme_color_scheme dracula
-set -U theme_display_git_default_branch yes
-set -U fish_cursor_default block blink
-set -U fish_cursor_insert block blink
+set fish_cursor_default block blink
+set fish_cursor_insert block blink
 
-set -U ARTISTIC_STYLE_OPTIONS ~/.astylerc
-
+# pyenv
 pyenv init - | source
 
 # pnpm
@@ -22,4 +21,3 @@ set -gx PNPM_HOME "/Users/junayd/Library/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
-# pnpm end

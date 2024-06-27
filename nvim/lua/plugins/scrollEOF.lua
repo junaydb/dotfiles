@@ -1,3 +1,4 @@
 return {
-	"Aasim-A/scrollEOF.nvim",
+  'Aasim-A/scrollEOF.nvim',
+  opts = {},
 }

@@ -1,27 +1,34 @@
-local opts = { noremap = true }
+-- Set <space> as the leader key
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
-vim.g.mapleader = " "
+-- Diagnostic keymaps
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
-vim.keymap.set("n", "<C-e>", vim.cmd.Ex, opts) -- open netrw
+-- Use CTRL+<hjkl> to switch between windows
+vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
-vim.keymap.set("i", "jk", "<Esc>", opts) -- return to normal mode from insert mode
+-- Open netrw
+vim.keymap.set('n', '<C-e>', vim.cmd.Ex, { desc = 'Open explorer' })
 
-vim.keymap.set("n", "<PageDown>", ":bnext<cr>", opts) -- go to next buffer
-vim.keymap.set("n", "<PageUp>", ":bprevious<cr>", opts) -- go to prev buffer
-vim.keymap.set("n", "<C-x>", ":bdelete<cr>", opts) -- close current buffer
-vim.keymap.set("n", "<C-s>", ":vsplit<cr>", opts) -- split vertical
+-- jk for insert->normal mode
+vim.keymap.set('i', 'jk', '<Esc>', { desc = 'Escape' })
 
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], opts) -- yank to system clipboard
-vim.keymap.set({ "n", "v" }, "<leader>yy", [["+yy]], opts) -- yank line to system clipboard
+-- Write buffer
+vim.keymap.set('n', '<leader>w', ':w<cr>', { desc = 'Write file' })
 
-vim.keymap.set("n", "<leader>w", ":w<cr>", opts) -- write
+-- Search and replace
+vim.keymap.set('n', '<leader>sl', ':s/', { desc = 'Search and replace (current line)' })
+vim.keymap.set('n', '<leader>sf', ':%s/', { desc = 'Sewarch and replace (entire file)' })
 
-vim.keymap.set("n", "<leader>sl", ":s/", opts) -- search and replace (current line)
-vim.keymap.set("n", "<leader>sf", ":%s/", opts) -- search and replace (entire file)
+-- Rename symbol
+vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { desc = 'Rename symbol' })
 
-vim.keymap.set("n", "<leader>h", ":noh<cr>", opts) -- remove highlight
-
-vim.keymap.set({ "n", "v" }, "<leader>x", [["_x]], opts) -- delete into black hole register
-vim.keymap.set("n", "<leader>dd", [["_dd]], opts) -- delete line into black hole register
-
-vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts) -- rename symbol
+-- Remove highlight
+vim.keymap.set('n', '<leader>h', ':noh<cr>')

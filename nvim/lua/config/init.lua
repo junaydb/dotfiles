@@ -1,3 +1,3 @@
-require('config.remaps')
+require('config.keymaps')
 require('config.set')
 require('config.autocmds')

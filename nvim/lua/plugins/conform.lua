@@ -28,6 +28,10 @@ return {
       python = { 'black' },
       c = { 'clang_format' },
       cpp = { 'clang_format' },
+      javascript = { 'biome' },
+      typescript = { 'biome' },
+      javascriptreact = { 'biome' },
+      typescriptreact = { 'biome' },
     },
   },
 }

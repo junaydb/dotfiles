@@ -53,7 +53,7 @@ vim.opt.scrolloff = 10
 
 -- [[ netrw settings ]]
 vim.g.netrw_banner = 0
-local gitDirRegex = [[\.git\/']]
-local dsStoreRegex = [[.DS_Store']]
+local gitDirRegex = [[\.git\/]]
+local dsStoreRegex = [[.DS_Store]]
 local dotDirsRegex = [[\.\.\=/\=$]]
 vim.g.netrw_list_hide = gitDirRegex .. ',' .. dsStoreRegex .. ',' .. dotDirsRegex

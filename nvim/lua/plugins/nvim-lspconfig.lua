@@ -136,13 +136,27 @@ return {
       --    https://github.com/pmizio/typescript-tools.nvim
       --
       -- But for many setups, the LSP (`tsserver`) will work just fine
-      -- tsserver = {},
+      tsserver = {
+        javascript = {
+          formatting = false,
+          rangeFormatting = false,
+        },
+        typescript = {
+          formatting = false,
+          rangeFormatting = false,
+        },
+        capabilities = {
+          textDocument = {
+            formatting = false,
+            rangeFormatting = false,
+          },
+        },
+      },
       --
 
       lua_ls = {
         -- cmd = {...},
         -- filetypes = {...},
-        -- capabilities = {},
         settings = {
           Lua = {
             completion = {

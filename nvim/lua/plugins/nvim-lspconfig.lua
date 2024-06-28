@@ -137,14 +137,6 @@ return {
       --
       -- But for many setups, the LSP (`tsserver`) will work just fine
       tsserver = {
-        javascript = {
-          formatting = false,
-          rangeFormatting = false,
-        },
-        typescript = {
-          formatting = false,
-          rangeFormatting = false,
-        },
         capabilities = {
           textDocument = {
             formatting = false,

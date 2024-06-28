@@ -1,15 +1,17 @@
 return {
   'aktersnurra/no-clown-fiesta.nvim',
-  priority = 1000, -- Make sure to load this before all the other start plugins.
+  priority = 1000,
   opt = {
     transparent = true,
     lsp = { underline = true },
     type = { bold = true },
   },
   init = function()
-    -- Load the colorscheme here.
-    -- Like many other themes, this one has different styles, and you could load
-    -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+    -- load the colorscheme here
     vim.cmd.colorscheme('no-clown-fiesta')
+    -- comment colour
+    vim.api.nvim_set_hl(0, 'Comment', { fg = '#c73a69' })
+    -- line number colour
+    vim.api.nvim_set_hl(0, 'LineNr', { fg = '#BBBBBB' })
   end,
 }

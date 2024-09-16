@@ -14,9 +14,6 @@ vim.opt.showmode = false
 -- Sync clipboard between OS and Neovim.
 vim.opt.clipboard = 'unnamedplus'
 
--- Enable break indent
-vim.opt.breakindent = true
-
 -- Save undo history
 vim.opt.undofile = true
 
@@ -40,7 +37,14 @@ vim.opt.splitbelow = true
 
 -- Sets how neovim will display certain whitespace characters in the editor
 vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = '  ', trail = ' ', nbsp = '␣' }
+-- vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+
+-- Tab width
+vim.opt.tabstop = 2
+vim.opt.smartindent = true
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
 
 -- Preview substitutions live (whilst typing)
 vim.opt.inccommand = 'split'
@@ -57,3 +61,6 @@ local gitDirRegex = [[\.git\/]]
 local dsStoreRegex = [[.DS_Store]]
 local dotDirsRegex = [[\.\.\=/\=$]]
 vim.g.netrw_list_hide = gitDirRegex .. ',' .. dsStoreRegex .. ',' .. dotDirsRegex
+
+-- highlight column 79
+vim.opt.colorcolumn = '79'

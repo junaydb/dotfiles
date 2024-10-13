@@ -55,12 +55,9 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor
 vim.opt.scrolloff = 10
 
--- [[ netrw settings ]]
+-- netrw settings
 vim.g.netrw_banner = 0
-local gitDirRegex = [[\.git\/]]
-local dsStoreRegex = [[.DS_Store]]
-local dotDirsRegex = [[\.\.\=/\=$]]
-vim.g.netrw_list_hide = gitDirRegex .. ',' .. dsStoreRegex .. ',' .. dotDirsRegex
+vim.g.netrw_list_hide = [[\.git\/,.DS_Store,\.\.\=/\=$]]
 
 -- highlight column 79
 vim.opt.colorcolumn = '79'

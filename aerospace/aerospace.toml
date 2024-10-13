@@ -40,6 +40,11 @@ alt-shift-j = 'join-with down'
 alt-shift-k = 'join-with up'
 alt-shift-l = 'join-with right'
 
+cmd-alt-h = 'focus-monitor --wrap-around left'
+cmd-alt-j = 'focus-monitor --wrap-around down'
+cmd-alt-k = 'focus-monitor --wrap-around up'
+cmd-alt-l = 'focus-monitor --wrap-around right'
+
 alt-shift-minus = 'resize smart -50'
 alt-shift-equal = 'resize smart +50'
 

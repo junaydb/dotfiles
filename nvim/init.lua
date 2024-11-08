@@ -3,15 +3,17 @@ require('config')
 -- Set bash as neovim's shell to fix vim-tmux-navigator delay
 vim.opt.shell = '/bin/bash -i'
 
--- Bootstrap `lazy.nvim` plugin manager
+-- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
   local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
   vim.fn.system({ 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath })
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
--- Configure and install plugins
+-- Plugins
 require('lazy').setup({
-  { import = 'plugins' },
+  spec = {
+    { import = 'plugins' },
+  },
 })

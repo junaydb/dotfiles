@@ -58,6 +58,3 @@ vim.opt.scrolloff = 10
 -- netrw settings
 vim.g.netrw_banner = 0
 vim.g.netrw_list_hide = [[\.git\/,.DS_Store,\.\.\=/\=$]]
-
--- highlight column 79
-vim.opt.colorcolumn = '79'

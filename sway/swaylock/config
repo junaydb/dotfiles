@@ -1,0 +1,14 @@
+image=~/backgrounds/everything-youve-ever-felt.png
+font=BerkeleyMono
+indicator-radius=35
+ring-color=6c2dd477
+ring-ver-color=6c2dd477
+ring-wrong-color=09012f77
+text-color=00000000
+text-wrong-color=00000000
+text-ver-color=00000000
+inside-color=00000000
+inside-ver-color=00000000
+separator-color=00000000
+key-hl-color=ffffff99
+line-uses-ring
